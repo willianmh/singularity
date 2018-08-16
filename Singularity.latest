@@ -4,19 +4,20 @@ From: nvidia/cuda:9.0-cudnn7-devel
 %post
 
     # Update list of available packages, then upgrade them
+    apt-get update && apt-get install -y --no-install-recommends apt-utils
     apt-get update
     DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
     # Workaround for https://github.com/keras-team/keras/issues/9567
     apt-get install -y --allow-downgrades --no-install-recommends \
-        libcudnn7=7.0.5.15-1+cuda9.0 libcudnn7-dev=7.0.5.15-1+cuda9.0 
-    
+        libcudnn7=7.0.5.15-1+cuda9.0 libcudnn7-dev=7.0.5.15-1+cuda9.0
+
     # Utility and support packages
-    apt-get install -y screen terminator tmux vim wget 
+    apt-get install -y screen terminator tmux vim wget
     apt-get install -y aptitude build-essential cmake g++ gfortran git \
         pkg-config python-pip python-dev software-properties-common
     apt-get install -y unrar
-   
+
     # Add PPA for ffmpeg
     add-apt-repository -y ppa:jonathonf/ffmpeg-3
     apt-get update
@@ -26,29 +27,29 @@ From: nvidia/cuda:9.0-cudnn7-devel
     apt-get install -y graphviz libatlas-dev libfreetype6 libfreetype6-dev \
         libgraphviz-dev liblapack-dev swig libxft-dev libxml2-dev \
         libxslt-dev zlib1g-dev
- 
+
     # Python modules from system package manager
     apt-get install -y python-numpy python-scipy python-nose python-h5py \
         python-skimage python-matplotlib python-pandas python-sklearn \
         python-sympy python-virtualenv
-   
+
     # More dependencies/useful software from system package manager
     apt-get install -v libopenblas-dev libfreetype7-dev libpng12-dev \
         libglib2.0-0 libsm6 libxext6 libxrender1
-    
-    # Caffe dependencies  
+
+    # Caffe dependencies
     apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev \
         libhdf5-serial-dev protobuf-compiler
     apt-get install --no-install-recommends -y libboost-all-dev
     apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
 
     # Theano dependencies not already installed
-    apt-get install -y python-pygments python-sphinx 
+    apt-get install -y python-pygments python-sphinx
 
     # Dense Flow dependencies
     apt-get install -y libzip-dev
 
-    # OpenCV build dependencies not already installed  
+    # OpenCV build dependencies not already installed
     apt-get install -y checkinstall yasm libjpeg-dev libjpeg8-dev \
         libjasper-dev libavcodec-dev libavformat-dev libswscale-dev \
         libdc1394-22-dev libgstreamer0.10-dev \
@@ -59,7 +60,7 @@ From: nvidia/cuda:9.0-cudnn7-devel
 
     # PIL (actually Pillow)
     pip install --no-cache-dir Pillow
-    
+
     # Jupyter and jupyterlab
     pip install --no-cache-dir jupyter
     pip install --no-cache-dir jupyterlab
@@ -83,4 +84,3 @@ From: nvidia/cuda:9.0-cudnn7-devel
     # Clean up
     apt-get -y autoremove
     rm -rvf /var/lib/apt/lists/*
-
