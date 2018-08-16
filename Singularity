@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+From: nvidia/cuda:9.2-cudnn7-devel-ubuntu16.04
 
 %environment
 
@@ -37,7 +37,28 @@ From: nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
   #Updating and getting required packages
   apt-get update
-  apt-get install -y wget git vim
+  apt-get install -y wget git vim tmux tree htop
+	apt-get install -y libtool m4 automake
+	apt-get install -y unrar unzip
+
+
+	# Utility and support packages
+  apt-get install -y aptitude build-essential cmake gcc g++ gfortran git \
+      pkg-config python-pip python-dev software-properties-common
+
+
+	# More utilities
+  apt-get install -y graphviz libatlas-dev libfreetype6 libfreetype6-dev \
+      libgraphviz-dev liblapack-dev swig libxft-dev libxml2-dev \
+      libxslt-dev zlib1g-dev
+
+  # Python modules from system package manager
+  apt-get install -y python-numpy python-scipy python-nose python-h5py \
+      python-skimage python-matplotlib python-pandas python-sklearn \
+      python-sympy python-virtualenv
+
+
+
 
   #Creates a build directory
   mkdir build
@@ -63,5 +84,3 @@ From: nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
 %test
 	#Test that script is a success
-
-	
