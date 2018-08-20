@@ -57,9 +57,6 @@ From: nvidia/cuda:9.2-cudnn7-devel-ubuntu16.04
       python-skimage python-matplotlib python-pandas python-sklearn \
       python-sympy python-virtualenv
 
-
-
-
   #Creates a build directory
   mkdir build
   cd build
@@ -76,6 +73,10 @@ From: nvidia/cuda:9.2-cudnn7-devel-ubuntu16.04
 
 	#Install Keras
 	pip install keras
+
+
+	wget "http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12998/parallel_studio_xe_2018_update3_cluster_edition.tgz"
+	
 
 %runscript
 	#Executes with the singularity run command
