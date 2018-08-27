@@ -16,9 +16,9 @@ From: ubuntu:latest
 
 
   # More utilities
-  apt-get install -y graphviz libatlas-dev libfreetype6 libfreetype6-dev \
-      libgraphviz-dev liblapack-dev swig libxft-dev libxml2-dev \
-      libxslt-dev zlib1g-dev
+  # apt-get install -y graphviz libatlas-dev libfreetype6 libfreetype6-dev \
+  #     libgraphviz-dev liblapack-dev swig libxft-dev libxml2-dev \
+  #     libxslt-dev zlib1g-dev
 
   wget "http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12998/parallel_studio_xe_2018_update3_cluster_edition.tgz"
 
