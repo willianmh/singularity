@@ -36,14 +36,14 @@ From: ubuntu:latest
 
   wget "https://cmake.org/files/v3.12/cmake-3.12.1.tar.gz"
   tar -xzf cmake-3.12.1.tar.gz
-  cd cmake-3.12.1.tar.gz
+  cd cmake-3.12.1
   ./bootstrap
   make
   make install
 
   wget "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz"
   tar -xvf metis-5.1.0.tar.gz
-  cd metis-5.1.0.tar.gz
+  cd metis-5.1.0
   make
 
 %runscript
