@@ -15,18 +15,14 @@ From: ubuntu:latest
       pkg-config python-pip python-dev software-properties-common
 
 
-  # More utilities
-  # apt-get install -y graphviz libatlas-dev libfreetype6 libfreetype6-dev \
-  #     libgraphviz-dev liblapack-dev swig libxft-dev libxml2-dev \
-  #     libxslt-dev zlib1g-dev
 
-  # wget "http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12998/parallel_studio_xe_2018_update3_cluster_edition.tgz"
+  # wget "http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/12998/parallel_studio_xe_2018_update3_cluster_edition_online.tgz"
   #
-	# mkdir ~/psxe_staging_area
-	# tar -xvzf parallel_studio_xe_2018_update3_cluster_edition.tgz -C ~/psxe_staging_area
+  # mkdir ~/psxe_staging_area
+	# tar -xvzf parallel_studio_xe_2018_update3_cluster_edition_online.tgz -C ~/psxe_staging_area
   #
-	# cd ~/psxe_staging_area/parallel_studio_xe_2018_update3_cluster_edition
-  #
+	# cd ~/psxe_staging_area/parallel_studio_xe_2018_update3_cluster_edition_online
+
   # sed -i 's/decline/accept/' silent.cfg
   # sed -i 's/COMPONENTS=DEFAULTS/COMPONENTS=ALL/' silent.cfg
   # sed -i 's/ACTIVATION_TYPE=exist_lic/ACTIVATION_TYPE=serial_number/' silent.cfg
@@ -39,34 +35,35 @@ From: ubuntu:latest
   # ---------------------------------------------------------------------------
 
   # dependencies
-  wget "https://cmake.org/files/v3.12/cmake-3.12.1.tar.gz"
-  tar -xzf cmake-3.12.1.tar.gz
-  cd cmake-3.12.1
-  ./bootstrap
-  make
-  make install
-  cd /root
-
-  # Install METIS
-  wget "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz"
-  tar -xvf metis-5.1.0.tar.gz
-  cd metis-5.1.0
-  make
-  cd /root
+  # wget "https://cmake.org/files/v3.12/cmake-3.12.1.tar.gz"
+  # tar -xzf cmake-3.12.1.tar.gz
+  # cd cmake-3.12.1
+  # ./bootstrap
+  # make
+  # make install
+  # cd /root
+  #
+  # # Install METIS
+  # wget "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz"
+  # tar -xvf metis-5.1.0.tar.gz
+  # cd metis-5.1.0
+  # make config
+  # make
+  # cd /root
 
   # ---------------------------------------------------------------------------
   # Installing MUMPS
   # ---------------------------------------------------------------------------
 
-  apt-get install -y libblas-dev liblapack-dev
-
-  wget "http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz"
-  tar xfz mpich-3.2.1.tar.gz
-  cd mpich-3.2.1
-  ./configure -disable-fast CFLAGS=-O2 FFLAGS=-O2 CXXFLAGS=-O2 FCFLAGS=-O2 -prefix=/opt/mpich3 CC=gcc FC=gfortran F77=gfortran
-  make
-  make install
-  cd /root
+  # apt-get install -y libblas-dev liblapack-dev
+  #
+  # wget "http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz"
+  # tar xfz mpich-3.2.1.tar.gz
+  # cd mpich-3.2.1
+  # ./configure -disable-fast CFLAGS=-O2 FFLAGS=-O2 CXXFLAGS=-O2 FCFLAGS=-O2 -prefix=/opt/mpich3 CC=gcc FC=gfortran F77=gfortran
+  # make
+  # make install
+  # cd /root
   #
   # wget "http://www.netlib.org/blas/blas-3.8.0.tgz"
   # tar -xvzf blas-3.8.0.tgz
@@ -84,12 +81,12 @@ From: ubuntu:latest
   # cp liblapack.a /usr/local/lib/
   # cd /root
 
-  wget "http://mumps.enseeiht.fr/MUMPS_5.1.2.tar.gz"
-  tar -xvf MUMPS_5.1.2.tar.gz
-  cd MUMPS_5.1.2
-  cp Make.inc/Makefile.debian.PAR ./Makefile.inc
-  make all
-  cd /root
+  # wget "http://mumps.enseeiht.fr/MUMPS_5.1.2.tar.gz"
+  # tar -xvf MUMPS_5.1.2.tar.gz
+  # cd MUMPS_5.1.2
+  # cp Make.inc/Makefile.debian.PAR ./Makefile.inc
+  # make all
+  # cd /root
 
 
 
